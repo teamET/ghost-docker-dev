@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+#    image: noiselabs/ghost-dev:latest
+    ports:
+      - "2368:2368"
+    volumes:
+      - ./config/config.development.json:/var/lib/ghost/config.development.json
+      - ./content:/var/lib/ghost/content
+    environment:
+      - NODE_ENV=development
+      - NPM_CONFIG_LOGLEVEL=debug

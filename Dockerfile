@@ -8,5 +8,6 @@ ENV NODE_ENV development
 RUN apt-get update && apt-get install -y rsync sudo && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g nodemon@latest
+RUN apt-get install git vim
 
 CMD ["nodemon", "current/index.js", "--watch", "content/themes"]
